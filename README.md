@@ -31,3 +31,11 @@ tool.
 A memory layer for the AI era: everything your AI tools learn about you and
 your work, remembered once and carried across every tool you use.
 [atlaso.ai](https://atlaso.ai) · [dashboard](https://app.atlaso.ai)
+
+---
+
+**Links:** [atlaso.ai](https://www.atlaso.ai) ·
+[What is an AI memory layer?](https://www.atlaso.ai/what-is-an-ai-memory-layer) ·
+[Docs](https://docs.atlaso.ai) ·
+[Research](https://www.atlaso.ai/research) ·
+[Pricing](https://www.atlaso.ai/pricing)
