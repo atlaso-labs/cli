@@ -51,5 +51,27 @@ if ($env:ATLASO_NO_CONNECT) {
   Write-Host "+  Run 'atlaso connect' to link this device."
   exit 0
 }
+# NO TTY, NO CONNECT — parity with install.sh:96. `connect` opens a browser and then
+# BLOCKS waiting for approval; under CI, a remote-exec channel, or an AI agent driving
+# PowerShell there is no console to answer with, so the installer hangs until it is
+# killed and the user is left with a binary on PATH and no idea what happened. The
+# POSIX installer has guarded this since it shipped; the PowerShell one never did, so
+# the same agent hit the same wall on Windows only.
+#
+# $Host.UI.RawUI is $null under a non-interactive host, and [Console]::IsInputRedirected
+# catches the piped-stdin case (`irm ... | iex`) where a RawUI still exists but nothing
+# can be typed into it. Either one means: print the next step, do not block.
+$interactive = $true
+try {
+  if ([Console]::IsInputRedirected) { $interactive = $false }
+  if ($null -eq $Host.UI -or $null -eq $Host.UI.RawUI) { $interactive = $false }
+} catch { $interactive = $false }
+
+if (-not $interactive) {
+  Write-Host "+  Run 'atlaso connect' to link this device."
+  Write-Host "   Automation: 'atlaso connect --tools claude-code --json' runs without a terminal."
+  exit 0
+}
+
 $env:ATLASO_FROM_INSTALLER = "1"
 & $exe connect
