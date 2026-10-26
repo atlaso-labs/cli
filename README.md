@@ -17,6 +17,9 @@ approve), then walks you through connecting your tools — Claude Code, Codex,
 Antigravity, OpenCode, Claude Desktop. No commands to paste, no sign-in per
 tool.
 
+## Why this exists
+One command installs Atlaso, links this machine to your account, and wires up the AI tools you pick, so every tool on the computer shares one memory. Everything the command does, and every `atlaso` subcommand, is in the docs. [Install](https://docs.atlaso.ai/install) · [CLI reference](https://docs.atlaso.ai/cli)
+
 ## Commands
 
 | Command | What it does |
@@ -37,5 +40,5 @@ your work, remembered once and carried across every tool you use.
 **Links:** [atlaso.ai](https://www.atlaso.ai) ·
 [What is an AI memory layer?](https://www.atlaso.ai/what-is-an-ai-memory-layer) ·
 [Docs](https://docs.atlaso.ai) ·
-[Research](https://www.atlaso.ai/research) ·
+[Research](https://www.atlaso.ai/lab) ·
 [Pricing](https://www.atlaso.ai/pricing)
